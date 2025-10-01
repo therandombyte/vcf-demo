@@ -1,1 +1,4 @@
 *.tfstate,*.tfstate_backup
+*.log
+*.terraform/*
+*.hcl
