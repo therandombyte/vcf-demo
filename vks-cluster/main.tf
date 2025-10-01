@@ -9,7 +9,7 @@ data "vcfa_region" "one" {
 
 data "vcfa_storage_class" "sc" {
   region_id = data.vcfa_region.one.id
-  name      = "vSAN Default Storage Policy"
+  name      = "vc-01c-cl01 vSAN Storage Policy"
 }
 
 resource "kubernetes_manifest" "kubernetes_cluster" {
@@ -45,9 +45,9 @@ resource "kubernetes_manifest" "kubernetes_cluster" {
             "value" = {
               "persistentVolumes" = {
                 "availableStorageClasses" = [
-                  "vsan-default-storage-policy",
+                  "vc-01c-cl01-vsan-storage-policy",
                 ]
-                "defaultStorageClass" = "vsan-default-storage-policy"
+                "defaultStorageClass" = "vc-01c-cl01-vsan-storage-policy"
               }
             }
           },
@@ -66,7 +66,7 @@ resource "kubernetes_manifest" "kubernetes_cluster" {
           },
           {
             "name"  = "storageClass"
-            "value" = "vsan-default-storage-policy"
+            "value" = "vc-01c-cl01-vsan-storage-policy"
           },
         ]
         "version" = "v1.32.0+vmware.6-fips"
@@ -75,7 +75,7 @@ resource "kubernetes_manifest" "kubernetes_cluster" {
             {
               "class"    = "node-pool"
               "name"     = "demo-node-pool"
-              "replicas" = 3
+              "replicas" = 1
             },
           ]
         }
