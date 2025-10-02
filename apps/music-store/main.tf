@@ -4,7 +4,8 @@ resource "kubernetes_manifest" "music-store" {
     kind       = "Application"
     metadata = {
       name = "music-store"
-      namespace = "${var.supervisor_namespace_name}" 
+      namespace = "${var.supervisor_namespace_name}"
+      finalizers = ["resources-finalizer.argocd.argoproj.io"] 
     }
     spec = {
       project = "default"
