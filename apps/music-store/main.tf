@@ -1,23 +1,15 @@
-data "vcfa_project" "one" {
-  name = var.vcfa_project
-}
-
-data "git_repo" "repo" {
-  name = var.git_repo
-}
-
 resource "kubernetes_manifest" "music-store" {
   manifest = {
     apiVersion = "argoproj.io/v1alpha1"
     kind       = "Application"
     metadata = {
       name = "music-store"
-      namespace = module.supervisor_namespace.namespace
+      namespace = "${var.supervisor_namespace_name}" 
     }
     spec = {
-      project = data.vcfa_project.one.name
+      project = "default"
       source = {
-        repoURL = data.git_repo.repo.name
+        repoURL = "https://github.com/NiranEC77/example-music-store-1"
         path = "./"
         targetRevision = "main"
         directory = {
@@ -25,7 +17,7 @@ resource "kubernetes_manifest" "music-store" {
         }
       }
       destination = {
-        server = local.kubeconfig["clusters"][0]["cluster"]["server"]
+        server = "https://10.21.10.2:6443"
         namespace = "default"
       }
       syncPolicy = {

@@ -24,9 +24,8 @@ provider "vcfa" {
 # Leveraging the Kubernetes provider to create VMs and VKS cluster 
 # as VCF is exposed  as a kubernetes endpoint
 provider "kubernetes" {
-  host     = data.vcfa_kubeconfig.kube_config.host
-  insecure = data.vcfa_kubeconfig.kube_config.insecure_skip_tls_verify
-  token    = data.vcfa_kubeconfig.kube_config.token
+  config_path    = "~/.kube/config"
+  config_context = "engg:engg-wjlr5"
 }
 
 data "vcfa_kubeconfig" "kube_config" {
@@ -34,5 +33,3 @@ data "vcfa_kubeconfig" "kube_config" {
   supervisor_namespace_name = var.supervisor_namespace_name
 }
 
-provider "local" {
-}

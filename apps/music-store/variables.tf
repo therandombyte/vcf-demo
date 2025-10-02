@@ -37,8 +37,3 @@ variable "cluster_name" {
   type        = string
   description = "Kubernetes cluster name"
 }
-
-variable "git_repo" {
-  type        = string
-  description = "the repository for application code"
-}
