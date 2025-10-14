@@ -1,0 +1,8 @@
+vcfa_url                  = "https://vcfa.corp.internal"
+vcfa_username             = "admin"
+vcfa_password             = "VMware1!VMware1!"
+vcfa_project              = "acme"
+vcfa_org                  = "acme"
+supervisor_namespace_name = "music-store-8jb5g"
+vcfa_region               = "emea"
+cluster_name              = "musicstore"

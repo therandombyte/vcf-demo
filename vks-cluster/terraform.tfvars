@@ -1,8 +1,0 @@
-vcfa_url                  = "https://vcfa.corp.internal"
-vcfa_username             = "admin"
-vcfa_password             = "VMware1!VMware1!"
-vcfa_project              = "sg-engineering"
-vcfa_org                  = "sg-engineering"
-supervisor_namespace_name = "sg-engg-xmnjn"
-vcfa_region               = "emea"
-cluster_name              = "enggcluster"
