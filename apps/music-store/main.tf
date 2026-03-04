@@ -18,7 +18,7 @@ resource "kubernetes_manifest" "music-store" {
         }
       }
       destination = {
-        server = "https://10.21.10.2:6443"
+        server = "https://192.168.15.138:6443"
         namespace = "default"
       }
       syncPolicy = {
