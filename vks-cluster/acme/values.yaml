@@ -1,0 +1,14 @@
+ arguments:
+   ignoreDaemonsetsUtilization: true
+   maxNodeProvisionTime: 15m
+   maxNodesTotal: 0
+   metricsPort: 8085
+   scaleDownDelayAfterAdd: 2m
+   scaleDownDelayAfterDelete: 10s
+   scaleDownDelayAfterFailure: 2m
+   scaleDownUnneededTime: 2m
+ clusterConfig:
+   clusterName: "acmesit"
+   clusterNamespace: "sit-clj4z"
+ paused: false
+# priorityClassName: ""

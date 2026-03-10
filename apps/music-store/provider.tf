@@ -25,7 +25,7 @@ provider "vcfa" {
 # as VCF is exposed  as a kubernetes endpoint
 provider "kubernetes" {
   config_path    = "~/.kube/config"
-  config_context = "production"
+  config_context = "engg"
 }
 
 data "vcfa_kubeconfig" "kube_config" {

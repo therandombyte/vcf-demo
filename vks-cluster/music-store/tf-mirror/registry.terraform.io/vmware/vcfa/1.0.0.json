@@ -1,0 +1,10 @@
+{
+  "archives": {
+    "linux_amd64": {
+      "hashes": [
+        "h1:KtTJR1mYdsfqAr2ByWtA9WbClH3k5DUK1gddLDQK6tA="
+      ],
+      "url": "terraform-provider-vcfa_1.0.0_linux_amd64.zip"
+    }
+  }
+}

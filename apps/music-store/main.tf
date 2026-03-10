@@ -3,7 +3,7 @@ resource "kubernetes_manifest" "music-store" {
     apiVersion = "argoproj.io/v1alpha1"
     kind       = "Application"
     metadata = {
-      name = "music-store"
+      name = "music-store2"
       namespace = "${var.supervisor_namespace_name}"
       finalizers = ["resources-finalizer.argocd.argoproj.io"] 
     }
@@ -18,7 +18,7 @@ resource "kubernetes_manifest" "music-store" {
         }
       }
       destination = {
-        server = "https://192.168.15.138:6443"
+        server = "https://192.168.15.141:6443"
         namespace = "default"
       }
       syncPolicy = {

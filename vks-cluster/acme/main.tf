@@ -9,7 +9,7 @@ data "vcfa_region" "one" {
 
 data "vcfa_storage_class" "sc" {
   region_id = data.vcfa_region.one.id
-  name      = "vc-01c-cl01 vSAN Storage Policy"
+  name      = "vc-vcf9-mgmt-cl01 vSAN Storage Policy"
 }
 
 
@@ -36,7 +36,7 @@ resource "kubernetes_manifest" "kubernetes_cluster" {
         }
       }
       "topology" = {
-        "class" = "builtin-generic-v3.3.0"
+        "class" = "builtin-generic-v3.4.0"
         "controlPlane" = {
           "replicas" = 1
         }
@@ -46,9 +46,9 @@ resource "kubernetes_manifest" "kubernetes_cluster" {
             "value" = {
               "persistentVolumes" = {
                 "availableStorageClasses" = [
-                  "vc-01c-cl01-vsan-storage-policy",
+                  "vc-vcf9-mgmt-cl01-vsan-storage-policy",
                 ]
-                "defaultStorageClass" = "vc-01c-cl01-vsan-storage-policy"
+                "defaultStorageClass" = "vc-vcf9-mgmt-cl01-vsan-storage-policy"
               }
             }
           },
@@ -67,15 +67,15 @@ resource "kubernetes_manifest" "kubernetes_cluster" {
           },
           {
             "name"  = "storageClass"
-            "value" = "vc-01c-cl01-vsan-storage-policy"
+            "value" = "vc-vcf9-mgmt-cl01-vsan-storage-policy"
           },
         ]
-        "version" = "v1.32.0+vmware.6-fips"
+        "version" = "v1.33.6+vmware.1-fips"
         "workers" = {
           "machineDeployments" = [
             {
               "class"    = "node-pool"
-              "name"     = "demo-node-pool"
+              "name"     = "worker"
               "replicas" = 1
             },
           ]
